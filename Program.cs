@@ -6,7 +6,7 @@ namespace thread_synchronization_constructs
     {
         static void Main(string[] args)
         {
-            var o = new AutoResetEventTest();
+            var o = new ManualResetEventTest();
             o.Run();
 
             Console.WriteLine("done");

@@ -11,8 +11,9 @@ namespace thread_synchronization_constructs
     {
 
         /// <summary>
-        /// ManualResetEvent is used for blocking other thread before a thread completes an activity.
-        /// ManualResetEvent is designed for controlling workflow.
+        /// ManualResetEvent is used for blocking other threads before a thread completes an activity.
+        /// ManualResetEvent is designed for controlling flow of threads.
+        /// Some people use it in the opposite way, i.e. make main thread WaitOne() until childthreads Set(), which seems like CountdownEvent is the right fit.
         /// </summary>
         private void Test1()
         {
@@ -21,6 +22,7 @@ namespace thread_synchronization_constructs
 
             Task.Run(() =>
             {
+                // If you pass in milliseconds, it works like Timeout time. i.e., it waits for the state to change only until given time.
                 sync.WaitOne();
                 Console.WriteLine("Thread1");
             });

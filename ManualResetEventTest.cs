@@ -13,6 +13,7 @@ namespace thread_synchronization_constructs
         /// <summary>
         /// ManualResetEvent is used for blocking other threads before a thread completes an activity.
         /// ManualResetEvent is designed for controlling flow of threads.
+        /// Most of the times, threads are not expected to be blocked at sync.WaitOne();.
         /// Some people use it in the opposite way, i.e. make main thread WaitOne() until childthreads Set(), which seems like CountdownEvent is the right fit.
         /// </summary>
         private void Test1()
